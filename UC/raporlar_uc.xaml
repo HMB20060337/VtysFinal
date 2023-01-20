@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WpfApp1.UC.raporlar_uc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.UC"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Background="#FFF6F6F6">
+        <DockPanel>
+            <Button Content="Stok Giriş Raporları" Style="{DynamicResource menubutonlar}" Width="auto" Margin="0,30,0,0"/>
+            <Button Content="İşlemler Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
+            <Button Content="Günlük Kasa Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
+            <Button Content="Genel Kar Zarar Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
+            <Button Content="Ürün Hareket Detay Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
+            <Button Content="En Çok Hareket Gören Ürünler Raporu" Style="{DynamicResource menubutonlar}" Width="auto" VerticalAlignment="Top"/>
+            <Button Content="Toplu Müşteri Borç Durum Raporu" Style="{DynamicResource menubutonlar}" Width="auto" VerticalAlignment="Top"/>
+
+        </DockPanel>
+
+
+
+
+    </Grid>
+</UserControl>

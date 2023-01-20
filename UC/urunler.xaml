@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="WpfApp1.UC.urunler"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.UC"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Background="#FFF6F6F6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0">
+            <Label Content="Stok İşlemleri" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontFamily="Cascadia Code" FontSize="14" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="5,0,5,0"/>
+        </Border>
+        <Border Grid.Row="1">
+            <DockPanel VerticalAlignment="Top">
+                <Button Content="Yeni Ürün Ekle" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Margin="0 20 0 0" Width="auto"/>
+                <Button Content="Stok Giriş" Style="{DynamicResource menubutonlar}"/>
+            </DockPanel>
+        </Border>
+
+        <Border Grid.Column="1">
+            <DockPanel>
+                <Border Style="{DynamicResource satistextblockborder}" Margin="50 10 0 0">
+                    <TextBox Text="Ürün Adı" Style="{DynamicResource satistext}" Width="200" HorizontalContentAlignment="Center" x:Name="urunadi_textbox_urunler"/>
+                </Border>
+                <Border Style="{DynamicResource satistextblockborder}" Margin="5 10 0 0">
+                    <TextBox Text="Barkod" Style="{DynamicResource satistext}" Width="200" HorizontalContentAlignment="Center"/>
+                </Border>
+                <Button Content="Ara" Style="{DynamicResource satiseklebuton}" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,10,0,0"/>
+            </DockPanel>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="1">
+            <DataGrid Style="{DynamicResource DataGridStyle1}"  RowStyle="{DynamicResource DataGridRowStyle1}"  FontFamily="Cascadia Code" FontSize="13" x:Name="satis_urunler_tablo" ColumnWidth="*">
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn Width="*" Header="Ürün ID">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding UrunID}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Barkod">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Barkod}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Ürün Adı">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding UrunAdi}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Stok">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Stok}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Alış Fiyatı">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding AlisFiyati}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Satış Fiyatı">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding SatisFiyati}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    
+    </Grid>
+</UserControl>

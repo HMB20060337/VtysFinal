@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="595" Width="800" MinWidth="800" MinHeight="600" WindowStyle="None"  HorizontalContentAlignment="Stretch" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFF6F6F6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="60" BorderThickness="0,0,0,2" BorderBrush="#FF3E3E3E" Margin="5,0,0,0">
+                    <Label x:Name="Label_Market_İsmi" Content="Market İsmi" FontFamily="Cascadia Code" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                </Border>
+
+                <Border Grid.Column="1">
+                    <DockPanel>
+                        <Button Content="SATIŞ" Style="{DynamicResource minibutonlar}" Margin="50,0,0,0" x:Name="btn_satis_mainmenu" Click="btn_satis_mainmenu_Click"/>
+                        <Button Content="ÜRÜNLER" Style="{DynamicResource minibutonlar}" x:Name="btn_urunler_mainmenu" Click="btn_urunler_mainmenu_Click"/>
+                        <Button Content="RAPORLAR" Style="{DynamicResource minibutonlar}" x:Name="btn_raporlar_mainmenu" Click="btn_raporlar_mainmenu_Click"/>
+                        <Button Content="MÜŞTERİLER" Style="{DynamicResource minibutonlar}" x:Name="btn_musteriler_mainmenu" Click="btn_musteriler_mainmenu_Click"/>
+                        <Button Style="{DynamicResource kapattus}" Click="btn_kapat_click"/>
+                        <Button Style="{DynamicResource kapattus}" Click="btn_boyut_click"/>
+                        <Button Style="{DynamicResource kapattus}" Click="btn_simgedrm_click"/>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1">
+            <Grid x:Name="panelDesktop" x:FieldModifier="public">
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
