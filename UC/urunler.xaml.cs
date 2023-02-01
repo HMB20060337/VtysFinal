@@ -22,16 +22,15 @@ namespace WpfApp1.UC
     /// </summary>
     public partial class urunler : UserControl
     {
-        public urunler()
+        private Context db;
+        public urunler(Context datab)
         {
             InitializeComponent();
             acilis();
+            this.db = datab;
         }
 
-        private void acilis (){
-        
-            Context db = new Context();
-
+        private void acilis (){      
             var q = from urun in db.Urunler select new {urun.UrunID, urun.Barkod, urun.UrunAdi, urun.Stok, urun.AlisFiyati, urun.SatisFiyati };
             satis_urunler_tablo.ItemsSource = q.ToList();
 

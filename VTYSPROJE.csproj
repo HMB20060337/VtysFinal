@@ -98,6 +98,9 @@
     <Compile Include="UC\satis_login_uc.xaml.cs">
       <DependentUpon>satis_login_uc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UC\satis_register_uc.xaml.cs">
+      <DependentUpon>satis_register_uc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UC\stok_rapor_screens\stok_uc.xaml.cs">
       <DependentUpon>stok_uc.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UC\satis_login_uc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\satis_register_uc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

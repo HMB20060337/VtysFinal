@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WpfApp1.UC"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="login_page_panel" x:FieldModifier="public" Background="#FFF6F6F6">
+    <Grid x:Name="login_page_panel" x:FieldModifier="public" Background="#FFF6F6F6" Margin="0,0,0,-2">
 
         <StackPanel >
             
@@ -14,10 +14,10 @@
             <TextBox x:Name="login_page_user" Margin="0 20 0 0" BorderThickness="2"  Padding="0 5 0 5 " HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Kullanıcı Adı..." VerticalAlignment="Center" Width="180" Height="auto" TextAlignment="Center" FontSize="18" GotKeyboardFocus="satisuc_login_username_tb_GotKeyboardFocus" LostKeyboardFocus="satisuc_login_username_tb_LostKeyboardFocus" FontFamily="Cascadia Code" Foreground="LightGray"/>
             <TextBox x:Name="login_page_pass" Margin="0 20 0 20"  Padding="0 5 0 5 " HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Şifre..." VerticalAlignment="Top" Width="180" Height="auto" TextAlignment="Center" FontSize="18" FontFamily="Cascadia Code" GotKeyboardFocus="satisuc_login_pass_tb_GotKeyboardFocus" LostKeyboardFocus="satisuc_login_pass_tb_LostKeyboardFocus" Foreground="LightGray"/>
             <Button x:Name="login_btn" Content="Giriş Yap"  Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource satiseklebuton}" FontSize="16" Click="login_btn_Click"/>
+           
 
         </StackPanel>
-
-
+        <Button x:Name="register_btn" Content="Yeni Kayıt"  Width="auto" HorizontalAlignment="Center" Style="{DynamicResource satiseklebuton}" FontSize="20" VerticalAlignment="Bottom" Margin="0,0,0,30" Click="register_btn_Click"/>
 
     </Grid>
 </UserControl>

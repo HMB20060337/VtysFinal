@@ -23,11 +23,11 @@ namespace WpfApp1.UC
     /// </summary>
     public partial class satis_login_uc : UserControl
     {
-        public satis_login_uc()
+        private Context db;
+        public satis_login_uc(Context datab)
         {
             InitializeComponent();
-            
-
+            db = datab;
         }
 
         private void satisuc_login_username_tb_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -49,11 +49,7 @@ namespace WpfApp1.UC
                 login_page_user.TextAlignment = TextAlignment.Center;
                 login_page_user.FontSize = 18;
             }
-
-
-
         }
-
         private void satisuc_login_pass_tb_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             login_page_pass.Text = "";
@@ -62,7 +58,6 @@ namespace WpfApp1.UC
             login_page_pass.FontSize = 18;
             login_page_pass.Height = 35;
         }
-
         private void satisuc_login_pass_tb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             if (login_page_pass.Text == "" || login_page_pass.Text == "Kullanıcı Adı Veya Parola Hatalı")
@@ -73,18 +68,13 @@ namespace WpfApp1.UC
                 login_page_pass.FontSize = 18;
 
             }
-
-
-        }
-        
+        }      
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
-            Context db = new Context();
-            var q = from p in db.Kullanıcılar where p.KullaniciAdi == login_page_user.Text && p.pass == login_page_pass.Text select p;
-
+            var q = from p in db.Kullanıcılar where p.KullaniciAdi == login_page_user.Text && p.pass == login_page_pass.Text select p;           
             if (q.Any()){
-                        
-                Class1.uc_ekle(login_page_panel, new satis());
+                Kullanıcılar a = q.First();
+                Class1.uc_ekle(login_page_panel, new satis(a,db));
 
             }
             else{
@@ -101,6 +91,10 @@ namespace WpfApp1.UC
                     
             }
                 
+        }
+        private void register_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Class1.uc_ekle(login_page_panel, new satis_register_uc(db));
         }
     }
 }

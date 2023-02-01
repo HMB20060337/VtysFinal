@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="WpfApp1.UC.satis_register_uc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.UC"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="register_page_panel" x:FieldModifier="public" Background="#FFF6F6F6" Margin="0,0,0,-2">
+        <StackPanel >
+
+            <Label Margin="0 80 0 0" Content="Satış Arayüzü Kullanıcı Kayıt Oluşturma" Style="{DynamicResource satısuclabel}" Width="auto" HorizontalAlignment="Center" FontSize="18"></Label>
+            <TextBox x:Name="register_page_user" Margin="0 20 0 0" BorderThickness="2"  Padding="0 5 0 5 " HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Kullanıcı Adı..." VerticalAlignment="Center" Width="180" Height="auto" TextAlignment="Center" FontSize="18" GotKeyboardFocus="satisuc_login_username_tb_GotKeyboardFocus" LostKeyboardFocus="satisuc_login_username_tb_LostKeyboardFocus" FontFamily="Cascadia Code" Foreground="LightGray"/>
+            <TextBox x:Name="register_page_pass" Margin="0 20 0 20"  Padding="0 5 0 5 " HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Şifre..." VerticalAlignment="Top" Width="180" Height="auto" TextAlignment="Center" FontSize="18" FontFamily="Cascadia Code" GotKeyboardFocus="satisuc_login_pass_tb_GotKeyboardFocus" LostKeyboardFocus="satisuc_login_pass_tb_LostKeyboardFocus" Foreground="LightGray"/>
+            <Button x:Name="register_btn" Content="Onayla"  Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource satiseklebuton}" FontSize="16" Click="register_btn_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

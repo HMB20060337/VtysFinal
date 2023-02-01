@@ -15,8 +15,8 @@
         <Border Grid.Column="0">
             <DockPanel Margin="0,10,0,0" Height="120" VerticalAlignment="Top">
 
-                <Button Content="Peşin Satiş" Style="{DynamicResource menubutonlar}"/>
-                <Button Content="Müş. Satiş" Style="{DynamicResource menubutonlar}"/>
+                <Button x:Name="pesin_satis_btn" Content="Peşin Satiş" Style="{DynamicResource menubutonlar}" Click="pesin_satis_btn_Click"/>
+                <Button x:Name="mus_satis_btn" Content="Müş. Satiş" Style="{DynamicResource menubutonlar}"/>
 
             </DockPanel>
         </Border>
@@ -42,54 +42,20 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
 
-                                <Border Grid.Row="0">
-                                    <DockPanel Margin="20 0 0 0">
-                                        <Label Content="Barkod" Style="{DynamicResource satısuclabel}"/>
-                                        <Border Style="{DynamicResource satistextblockborder}" Width="110">
-                                            <TextBox x:Name="barkod_text" x:FieldModifier="public" Text="**************" Style="{DynamicResource satistext}"/>
-                                        </Border>
-                                    </DockPanel>
+                                <Border Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="auto">
+                                    <Label Height="Auto"  Width="auto" Content="Barkod" Style="{DynamicResource satısuclabel}" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontSize="18"/>
                                 </Border>
                                 <Border Grid.Row="1">
-                                    <DockPanel Margin="20 0 0 0">
-                                        <Label Content="Ürün Adı" Style="{DynamicResource satısuclabel}"/>
-                                        <Border Style="{DynamicResource satistextblockborder}" Width="110">
-                                            <TextBox Text="**************" Style="{DynamicResource satistext}"/>
+                                    <DockPanel>
+                                        <Border Style="{DynamicResource satistextblockborder}" Width="150" HorizontalAlignment="Center">
+                                            <TextBox MaxLines="1" MinLines="1" x:Name="barkod_text" x:FieldModifier="public" Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" Style="{DynamicResource satistext}" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MinWidth="150" MinHeight="25" Padding="3,0,3,0" MaxHeight="25" FontSize="15"/>
                                         </Border>
                                     </DockPanel>
                                 </Border>
                                 <Border Grid.Row="2">
-                                    <DockPanel Margin="20 0 0 0">
-                                        <Label Content="Miktar" Style="{DynamicResource satısuclabel}"/>
-                                        <Border Style="{DynamicResource satistextblockborder}" Width="45">
-                                            <TextBox Text="*****" Style="{DynamicResource satistext}"/>
-                                        </Border>
-                                    </DockPanel>
-                                </Border>
-                                <Border Grid.Row="3">
-                                    <DockPanel Margin="20 0 0 0">
-                                        <Label Content="Brm.Fiyat" Style="{DynamicResource satısuclabel}"/>
-                                        <Border Style="{DynamicResource satistextblockborder}" Width="45">
-                                            <TextBlock Text="*****" Style="{DynamicResource satistextblock}"/>
-                                        </Border>
-                                    </DockPanel>
-                                </Border>
-                                <Border Grid.Row="4">
-                                    <DockPanel Margin="20 0 0 0">
-                                        <Label Content="Tutar" Style="{DynamicResource satısuclabel}"/>
-                                        <Border Style="{DynamicResource satistextblockborder}" Width="45">
-                                            <TextBlock Text="*****" Style="{DynamicResource satistextblock}"/>
-                                        </Border>
-
-                                        <Border Style="{DynamicResource satistextblockborder}" Width="30" Margin="5,0,0,0">
-                                            <Label  Content="TL" Width="30" Height="25" Style="{DynamicResource satısuclabel}"/>
-                                        </Border>
-                                        <Button x:Name="ekle_btn" Content="Ekle" Style="{DynamicResource satiseklebuton}" Height="30" Width="80" Click="ekle_btn_Click"/>
-                                    </DockPanel>
+                                    <Button x:Name="ekle_btn" Content="Ekle" Style="{DynamicResource satiseklebuton}" Height="30" Width="80" Click="ekle_btn_Click" HorizontalAlignment="Center" FontSize="18"/>
                                 </Border>
                             </Grid>
                         </Border>
@@ -151,7 +117,6 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
 
                     </DataGrid.Columns>
                 </DataGrid>

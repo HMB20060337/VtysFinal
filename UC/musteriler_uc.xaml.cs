@@ -21,19 +21,17 @@ namespace WpfApp1.UC
     /// </summary>
     public partial class musteriler_uc : UserControl
     {
-        public musteriler_uc()
+        private Context db;
+        public musteriler_uc(Context datab)
         {
             InitializeComponent();
+            this.db = datab;
         }
 
         private void acilis()
         {
-            Context db = new Context();
-
             var q = from musteri in db.Musteriler select new { musteri.MusteriId, musteri.MusteriSoyadi, musteri.MusteriAdi, musteri.Telefon, musteri.Borc };
             musteriler_tablo.ItemsSource = q.ToList();
-
-
         }
     }
 }
