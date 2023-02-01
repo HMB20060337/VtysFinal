@@ -15,6 +15,8 @@ namespace WpfApp1.Entity
 
         public DateTime tarih { get; set; }
 
+        public double Tutar { get; set; }
+
         public virtual ICollection<Islem_Detay> Islem_Detay { get; set; }
 
     }

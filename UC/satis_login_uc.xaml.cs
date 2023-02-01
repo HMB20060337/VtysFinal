@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Class;
 using WpfApp1.Entity;
+using WpfApp1.UC.urunler_uc_screens;
 
 namespace WpfApp1.UC
 {

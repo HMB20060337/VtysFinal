@@ -67,7 +67,7 @@ namespace WpfApp1
 
         private void btn_urunler_mainmenu_Click(object sender, RoutedEventArgs e)
         {
-            WpfApp1.Class.Class1.uc_ekle(panelDesktop, new urunler(db));
+            WpfApp1.Class.Class1.uc_ekle(panelDesktop, new urunler(db,panelDesktop));
         }
 
         private void btn_raporlar_mainmenu_Click(object sender, RoutedEventArgs e)
@@ -76,7 +76,7 @@ namespace WpfApp1
         }
         private void btn_musteriler_mainmenu_Click(object sender, RoutedEventArgs e)
         {
-            WpfApp1.Class.Class1.uc_ekle(panelDesktop, new musteriler_uc(db));
+            WpfApp1.Class.Class1.uc_ekle(panelDesktop, new musteriler_uc(db,panelDesktop));
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

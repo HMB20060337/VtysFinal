@@ -14,5 +14,7 @@ namespace WpfApp1.Entity
         public virtual Islemler Islemler { get; set; }
 
         public virtual Urunler Urunler { get; set; }
+
+        public int Miktar { get; set; }
     }
 }

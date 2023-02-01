@@ -41,7 +41,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
+                                    <RowDefinition Height="70"/>
                                 </Grid.RowDefinitions>
 
                                 <Border Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="auto">
@@ -49,12 +49,12 @@
                                 </Border>
                                 <Border Grid.Row="1">
                                     <DockPanel>
-                                        <Border Style="{DynamicResource satistextblockborder}" Width="150" HorizontalAlignment="Center">
-                                            <TextBox MaxLines="1" MinLines="1" x:Name="barkod_text" x:FieldModifier="public" Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" Style="{DynamicResource satistext}" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MinWidth="150" MinHeight="25" Padding="3,0,3,0" MaxHeight="25" FontSize="15"/>
+                                        <Border Style="{DynamicResource satistextblockborder}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                            <TextBox MaxLines="1" MinLines="1" x:Name="barkod_text" x:FieldModifier="public" Text="" Style="{DynamicResource satistext}" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MinWidth="150" MinHeight="25" Padding="3,0,3,0" MaxHeight="25" FontSize="15"/>
                                         </Border>
                                     </DockPanel>
                                 </Border>
-                                <Border Grid.Row="2">
+                                <Border Grid.Row="2" VerticalAlignment="Top">
                                     <Button x:Name="ekle_btn" Content="Ekle" Style="{DynamicResource satiseklebuton}" Height="30" Width="80" Click="ekle_btn_Click" HorizontalAlignment="Center" FontSize="18"/>
                                 </Border>
                             </Grid>
@@ -84,13 +84,13 @@
                 <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}"  Grid.Row="1" FontFamily="Cascadia Code" FontSize="13" SnapsToDevicePixels="True" x:Name="satis_urunler_tablo">
                     <DataGrid.Columns>
 
-                        <DataGridCheckBoxColumn CanUserResize="False" Width="auto" >
-                            <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataGridTemplateColumn Header="#" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <CheckBox/>
+                                    <TextBlock Text="" VerticalAlignment="Center"/>
                                 </DataTemplate>
-                            </DataGridCheckBoxColumn.HeaderTemplate>
-                        </DataGridCheckBoxColumn>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
 
                         <DataGridTemplateColumn Header="Barkod" IsReadOnly="True" Width="*">
@@ -109,8 +109,8 @@
                         <DataGridTemplateColumn IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button  Margin = "0 0 0 0" Content="Sil" Style="{DynamicResource satiseklebuton}" FontSize="13">
+                                    <StackPanel>
+                                        <Button  Margin = "0 0 0 0" Content="Sil" Style="{DynamicResource satiseklebuton}" FontSize="13" Click="Button_Click">
 
                                         </Button>
                                     </StackPanel>

@@ -85,9 +85,24 @@
     <Compile Include="Migrations\202301200717596_barkodekle.designer.cs">
       <DependentUpon>202301200717596_barkodekle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302011817240_ıslem_detay_ıslem_add_columns.cs" />
+    <Compile Include="Migrations\202302011817240_ıslem_detay_ıslem_add_columns.designer.cs">
+      <DependentUpon>202302011817240_ıslem_detay_ıslem_add_columns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302012041000_updateMusterilerAndUrunler.cs" />
+    <Compile Include="Migrations\202302012041000_updateMusterilerAndUrunler.designer.cs">
+      <DependentUpon>202302012041000_updateMusterilerAndUrunler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302012248403_updateMusteriFaturaAndKullanici.cs" />
+    <Compile Include="Migrations\202302012248403_updateMusteriFaturaAndKullanici.designer.cs">
+      <DependentUpon>202302012248403_updateMusteriFaturaAndKullanici.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UC\musteriler_uc.xaml.cs">
       <DependentUpon>musteriler_uc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\musteriler_uc_screens\musteri_ekle.xaml.cs">
+      <DependentUpon>musteri_ekle.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\raporlar_uc.xaml.cs">
       <DependentUpon>raporlar_uc.xaml</DependentUpon>
@@ -107,8 +122,8 @@
     <Compile Include="UC\urunler.xaml.cs">
       <DependentUpon>urunler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\urunler_uc_screens\add_urun.xaml.cs">
-      <DependentUpon>add_urun.xaml</DependentUpon>
+    <Compile Include="UC\urunler_uc_screens\urun_ekle.xaml.cs">
+      <DependentUpon>urun_ekle.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +138,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UC\musteriler_uc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_uc_screens\musteri_ekle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,7 +169,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\urunler_uc_screens\add_urun.xaml">
+    <Page Include="UC\urunler_uc_screens\urun_ekle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +193,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301200717596_barkodekle.resx">
       <DependentUpon>202301200717596_barkodekle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302011817240_ıslem_detay_ıslem_add_columns.resx">
+      <DependentUpon>202302011817240_ıslem_detay_ıslem_add_columns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302012041000_updateMusterilerAndUrunler.resx">
+      <DependentUpon>202302012041000_updateMusterilerAndUrunler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302012248403_updateMusteriFaturaAndKullanici.resx">
+      <DependentUpon>202302012248403_updateMusteriFaturaAndKullanici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

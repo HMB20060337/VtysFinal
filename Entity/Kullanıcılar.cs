@@ -16,5 +16,7 @@ namespace WpfApp1.Entity
         public string pass { get; set; }
         public virtual ICollection<Islemler> Islemlers { get; set; }
 
+        public virtual ICollection<Fatura> Faturas { get; set; }
+
     }
 }

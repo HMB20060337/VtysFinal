@@ -21,9 +21,8 @@
         </Border>
         <Border Grid.Row="1">
             <DockPanel VerticalAlignment="Top">
-                <Button Content="Müşteri Ekle" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Margin="0 20 0 0"/>
+                <Button x:Name="musteri_ekle_btn" Content="Müşteri Ekle" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Margin="0 20 0 0" Click="musteri_ekle_btn_Click"/>
                 <Button Content="Müşteri Sil" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top"/>
-
             </DockPanel>
         </Border>
 

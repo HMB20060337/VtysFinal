@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Class;
 using WpfApp1.Entity;
+using WpfApp1.UC.musteriler_uc_screens;
 
 namespace WpfApp1.UC
 {
@@ -22,16 +24,23 @@ namespace WpfApp1.UC
     public partial class musteriler_uc : UserControl
     {
         private Context db;
-        public musteriler_uc(Context datab)
+        private Grid x;
+        public musteriler_uc(Context datab,Grid x)
         {
             InitializeComponent();
             this.db = datab;
+            this.x = x;
         }
 
         private void acilis()
         {
             var q = from musteri in db.Musteriler select new { musteri.MusteriId, musteri.MusteriSoyadi, musteri.MusteriAdi, musteri.Telefon, musteri.Borc };
             musteriler_tablo.ItemsSource = q.ToList();
+        }
+
+        private void musteri_ekle_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Class1.uc_ekle(x, new musteri_ekle(db, x));
         }
     }
 }

@@ -13,10 +13,13 @@ namespace WpfApp1.Entity
 
         public DateTime Tarih { get; set; }
 
+        public int Tutar { get; set; }
+
         public virtual Musteriler MusteriId { get; set; }
 
-        public virtual ICollection<Fatura_Detay> Fatura_Detays { get; set; }
+        public virtual Kullanıcılar KullaniciId { get; set; }
 
+        public virtual ICollection<Fatura_Detay> Fatura_Detays { get; set; }
 
     }
 }

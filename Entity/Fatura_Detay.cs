@@ -15,5 +15,7 @@ namespace WpfApp1.Entity
 
         public virtual Urunler Urunler { get; set; }
 
+        public int miktar { get; set; }
+
     }
 }

@@ -12,7 +12,7 @@ namespace WpfApp1.Entity
         [Key]
         public int UrunID { get; set; }
 
-        public int Barkod { get; set; }
+        public string Barkod { get; set; }
         public string UrunAdi { get; set; }
         public double AlisFiyati { get; set; }
         public double SatisFiyati { get; set; }

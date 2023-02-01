@@ -33,45 +33,60 @@ namespace WpfApp1.UC
         
         public static ObservableCollection<Urunler> sepet = new ObservableCollection<Urunler>();
         public double toplam=0;
+        private int temp = 0;
         public void ekle_btn_Click(object sender, RoutedEventArgs e)
         {
             SepetList list = new SepetList(barkod_text.Text,db);
+            satis_urunler_tablo.ItemsSource = sepet;
 
             list.ForEach(x =>
             {
-                if (sepet.Contains(x) == false ) {
-                    sepet.Add(x); }
+                if(sepet.Count> 0) { 
+                sepet.ToList().ForEach(y => {
+                    if(y.UrunID==x.UrunID)
+                    {
+                        temp++;
+                        y.Stok += 1;
+
+                        
+                    }
+                    else if(y==sepet.Last() && temp==0)
+                    {
+                        sepet.Add(x);
+                    }
+                });
+                }
                 else
                 {
-                    sepet[sepet.IndexOf(x)].Stok = sepet[sepet.IndexOf(x)].Stok + 1;
+                    sepet.Add(x);
                 }
-                toplam = toplam + x.SatisFiyati;              
-            
+
             });
+
             toplamlabel.Text = toplam.ToString();
-            satis_urunler_tablo.ItemsSource = sepet;
-            barkod_text.Text = "";
+                          
+            barkod_text.Text = "";           
+            satis_urunler_tablo.Items.Refresh();
         }
 
         class SepetList : List<Urunler>
         {
             public  SepetList(string str,Context db)
             {   
-
-                int a = Convert.ToInt32(str);
-
-        
-                var eklenecek = from urun in db.Urunler.Where(x => x.Barkod == a) select new { urun.UrunID, urun.Barkod, urun.UrunAdi, urun.SatisFiyati };
+                var eklenecek = from urun in db.Urunler.Where(x => x.Barkod == str) select new { urun.UrunID, urun.Barkod, urun.UrunAdi, urun.SatisFiyati };
                 eklenecek.ToList().ForEach(x =>
                 {
-                    this.Add(new Urunler()
+                    if (this.Count == 0)
                     {
-                        UrunID = x.UrunID,
-                        Barkod = x.Barkod,
-                        UrunAdi = x.UrunAdi,
-                        Stok = 1,
-                        SatisFiyati = x.SatisFiyati,
-                    });
+                        this.Add(new Urunler()
+                        {
+                            UrunID = x.UrunID,
+                            Barkod = x.Barkod,
+                            UrunAdi = x.UrunAdi,
+                            Stok = 1,
+                            SatisFiyati = x.SatisFiyati,
+                        });
+                    }
                 });
             }
         }
@@ -94,7 +109,11 @@ namespace WpfApp1.UC
             sepet.Clear();
             toplamlabel.Text = 0.ToString();
             db.SaveChanges();
+        }      
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            sepet.RemoveAt(satis_urunler_tablo.SelectedIndex);
         }
-  
     }
 }

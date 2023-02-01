@@ -40,7 +40,7 @@ namespace WpfApp1.UC
 
         private void satisuc_login_username_tb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if (register_page_user.Text == "" || register_page_user.Text == "Kullanıcı Adı Veya Parola Hatalı")
+            if (register_page_user.Text == "" || register_page_user.Text == "Bu Alan Boş Bırakılamaz")
 
             {
                 register_page_user.Text = "Kullanıcı Adı...";
@@ -60,7 +60,7 @@ namespace WpfApp1.UC
         }
         private void satisuc_login_pass_tb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if (register_page_pass.Text == "" || register_page_pass.Text == "Kullanıcı Adı Veya Parola Hatalı")
+            if (register_page_pass.Text == "" || register_page_pass.Text == "Bu Alan Boş Bırakılamaz")
             {
                 register_page_pass.Text = "Şifre...";
                 register_page_pass.Foreground = new SolidColorBrush(Colors.LightGray);
@@ -72,18 +72,25 @@ namespace WpfApp1.UC
 
         private void register_btn_Click(object sender, RoutedEventArgs e)
         {
-            Kullanıcılar kullanici = new Kullanıcılar
+            if(register_page_user.Text == "" || register_page_user.Text == "Kullanıcı Adı..." || register_page_user.Text == "Bu Alan Boş Bırakılamaz" || register_page_pass.Text == "" ||register_page_pass.Text=="Şifre..."||register_page_pass.Text== "Bu Alan Boş Bırakılamaz")
             {
-                KullaniciAdi = register_page_user.Text,
-                pass = register_page_pass.Text               
-            };                
-            db.Kullanıcılar.Add(kullanici);
-            db.SaveChanges();
+                if (register_page_pass.Text == "" || register_page_pass.Text == "Şifre...") { register_page_pass.Height = 55; register_page_pass.Text = "Bu Alan Boş Bırakılamaz"; register_page_pass.Foreground = new SolidColorBrush(Colors.Red); }
+                if (register_page_user.Text == "" || register_page_user.Text == "Kullanıcı Adı..."){register_page_user.Height= 55; register_page_user.Text = "Bu Alan Boş Bırakılamaz";register_page_user.Foreground = new SolidColorBrush(Colors.Red);}
+            }
+            else {
+                Kullanıcılar kullanici = new Kullanıcılar
+                {
+                    KullaniciAdi = register_page_user.Text,
+                    pass = register_page_pass.Text
+                };
+                db.Kullanıcılar.Add(kullanici);
+                db.SaveChanges();
 
-            MessageBox.Show("Kayıt Oluşturuldu");
+                MessageBox.Show("Kayıt Oluşturuldu");
 
-            Class1.uc_ekle(register_page_panel, new satis_login_uc(db));
+                Class1.uc_ekle(register_page_panel, new satis_login_uc(db));
 
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace WpfApp1.Entity
         public string MusteriAdi { get; set; }
         public string MusteriSoyadi { get; set; }
 
-        public ulong Telefon { get; set; }
+        public string Telefon { get; set; }
 
         public int Borc { get; set; }
 
