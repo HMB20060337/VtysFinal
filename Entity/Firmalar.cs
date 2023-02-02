@@ -15,7 +15,5 @@ namespace WpfApp1.Entity
 
         public int Borc { get; set; }
 
-        public virtual ICollection<Stok_Giris> Giris { get; set; }
-
     }
 }

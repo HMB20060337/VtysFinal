@@ -16,9 +16,7 @@ namespace WpfApp1.Entity
 
         public string Telefon { get; set; }
 
-        public int Borc { get; set; }
-
-        public virtual ICollection<Fatura> Fatura { get; set; }
-
+        public double Borc { get; set; }
+        
     }
 }

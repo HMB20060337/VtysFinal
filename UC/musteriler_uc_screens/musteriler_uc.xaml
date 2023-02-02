@@ -22,7 +22,8 @@
         <Border Grid.Row="1">
             <DockPanel VerticalAlignment="Top">
                 <Button x:Name="musteri_ekle_btn" Content="Müşteri Ekle" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Margin="0 20 0 0" Click="musteri_ekle_btn_Click"/>
-                <Button Content="Müşteri Sil" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top"/>
+                <Button x:Name="delete" Content="Müşteri Sil" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Click="delete_Click"/>
+                <Button x:Name="borc" Content="Borç Öde" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Click="borc_Click"/>
             </DockPanel>
         </Border>
 
@@ -76,7 +77,7 @@
                     <DataGridTemplateColumn Width="*" Header="Borç">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Borç}"/>
+                                <TextBlock Text="{Binding Borc}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

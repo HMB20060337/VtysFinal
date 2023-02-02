@@ -47,6 +47,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,9 +58,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -70,10 +74,12 @@
     <Compile Include="Entity\Fatura.cs" />
     <Compile Include="Entity\Fatura_Detay.cs" />
     <Compile Include="Entity\Firmalar.cs" />
+    <Compile Include="Entity\Firma_Odeme.cs" />
     <Compile Include="Entity\Islemler.cs" />
     <Compile Include="Entity\Islem_Detay.cs" />
     <Compile Include="Entity\Kullanıcılar.cs" />
     <Compile Include="Entity\Musteriler.cs" />
+    <Compile Include="Entity\Musteri_Odeme.cs" />
     <Compile Include="Entity\Stok_Giris.cs" />
     <Compile Include="Entity\Stok_Giris_Detay.cs" />
     <Compile Include="Entity\Urunler.cs" />
@@ -97,32 +103,83 @@
     <Compile Include="Migrations\202302012248403_updateMusteriFaturaAndKullanici.designer.cs">
       <DependentUpon>202302012248403_updateMusteriFaturaAndKullanici.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302012355185_islemlerupdate.cs" />
+    <Compile Include="Migrations\202302012355185_islemlerupdate.designer.cs">
+      <DependentUpon>202302012355185_islemlerupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020127105_generalupdate.cs" />
+    <Compile Include="Migrations\202302020127105_generalupdate.designer.cs">
+      <DependentUpon>202302020127105_generalupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020334330_updatecolumnFaturadbo.cs" />
+    <Compile Include="Migrations\202302020334330_updatecolumnFaturadbo.designer.cs">
+      <DependentUpon>202302020334330_updatecolumnFaturadbo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020413410_updateıslem.cs" />
+    <Compile Include="Migrations\202302020413410_updateıslem.designer.cs">
+      <DependentUpon>202302020413410_updateıslem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020427388_updateallModels.cs" />
+    <Compile Include="Migrations\202302020427388_updateallModels.designer.cs">
+      <DependentUpon>202302020427388_updateallModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020500118_updatemodels.cs" />
+    <Compile Include="Migrations\202302020500118_updatemodels.designer.cs">
+      <DependentUpon>202302020500118_updatemodels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020522565_update_musteriler_borc.cs" />
+    <Compile Include="Migrations\202302020522565_update_musteriler_borc.designer.cs">
+      <DependentUpon>202302020522565_update_musteriler_borc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020538124_updateIslemDetay.cs" />
+    <Compile Include="Migrations\202302020538124_updateIslemDetay.designer.cs">
+      <DependentUpon>202302020538124_updateIslemDetay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020554483_general_update1.cs" />
+    <Compile Include="Migrations\202302020554483_general_update1.designer.cs">
+      <DependentUpon>202302020554483_general_update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020822529_newtables.cs" />
+    <Compile Include="Migrations\202302020822529_newtables.designer.cs">
+      <DependentUpon>202302020822529_newtables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UC\firmalar.xaml.cs">
       <DependentUpon>firmalar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\musteriler_uc.xaml.cs">
+
+    <Compile Include="UC\musteriler_uc_screens\borc_ode.xaml.cs">
+      <DependentUpon>borc_ode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\musteriler_uc_screens\musteriler_uc.xaml.cs">
+
       <DependentUpon>musteriler_uc.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\musteriler_uc_screens\musteri_ekle.xaml.cs">
       <DependentUpon>musteri_ekle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UC\musteriler_uc_screens\musteri_sil.xaml.cs">
+      <DependentUpon>musteri_sil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UC\raporlar_uc.xaml.cs">
       <DependentUpon>raporlar_uc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\satis.xaml.cs">
+    <Compile Include="UC\satis_screens\musteri_satis.xaml.cs">
+      <DependentUpon>musteri_satis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\satis_screens\satis.xaml.cs">
       <DependentUpon>satis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\satis_login_uc.xaml.cs">
+    <Compile Include="UC\satis_screens\satis_login_uc.xaml.cs">
       <DependentUpon>satis_login_uc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\satis_register_uc.xaml.cs">
+    <Compile Include="UC\satis_screens\satis_register_uc.xaml.cs">
       <DependentUpon>satis_register_uc.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\stok_rapor_screens\stok_uc.xaml.cs">
       <DependentUpon>stok_uc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\urunler.xaml.cs">
+    <Compile Include="UC\urunler_uc_screens\urunler.xaml.cs">
       <DependentUpon>urunler.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\urunler_uc_screens\urun_ekle.xaml.cs">
@@ -144,7 +201,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\musteriler_uc.xaml">
+
+    <Page Include="UC\musteriler_uc_screens\borc_ode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_uc_screens\musteriler_uc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,19 +214,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UC\musteriler_uc_screens\musteri_sil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UC\raporlar_uc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\satis.xaml">
+    <Page Include="UC\satis_screens\musteri_satis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\satis_login_uc.xaml">
+    <Page Include="UC\satis_screens\satis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\satis_register_uc.xaml">
+    <Page Include="UC\satis_screens\satis_login_uc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\satis_screens\satis_register_uc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,7 +242,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\urunler.xaml">
+    <Page Include="UC\urunler_uc_screens\urunler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +279,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302012248403_updateMusteriFaturaAndKullanici.resx">
       <DependentUpon>202302012248403_updateMusteriFaturaAndKullanici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302012355185_islemlerupdate.resx">
+      <DependentUpon>202302012355185_islemlerupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020127105_generalupdate.resx">
+      <DependentUpon>202302020127105_generalupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020334330_updatecolumnFaturadbo.resx">
+      <DependentUpon>202302020334330_updatecolumnFaturadbo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020413410_updateıslem.resx">
+      <DependentUpon>202302020413410_updateıslem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020427388_updateallModels.resx">
+      <DependentUpon>202302020427388_updateallModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020500118_updatemodels.resx">
+      <DependentUpon>202302020500118_updatemodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020522565_update_musteriler_borc.resx">
+      <DependentUpon>202302020522565_update_musteriler_borc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020538124_updateIslemDetay.resx">
+      <DependentUpon>202302020538124_updateIslemDetay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020554483_general_update1.resx">
+      <DependentUpon>202302020554483_general_update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020822529_newtables.resx">
+      <DependentUpon>202302020822529_newtables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

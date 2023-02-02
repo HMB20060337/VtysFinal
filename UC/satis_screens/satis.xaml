@@ -13,10 +13,11 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0">
-            <DockPanel Margin="0,10,0,0" Height="120" VerticalAlignment="Top">
+            <DockPanel Margin="0,10,0,0" Height="180" VerticalAlignment="Top">
 
-                <Button x:Name="pesin_satis_btn" Content="Peşin Satiş" Style="{DynamicResource menubutonlar}" Click="pesin_satis_btn_Click"/>
-                <Button x:Name="mus_satis_btn" Content="Müş. Satiş" Style="{DynamicResource menubutonlar}"/>
+                <Button x:Name="nakit" Content="Nakit Satış" Style="{DynamicResource menubutonlar}" Click="nakit_Click"/>
+                <Button x:Name="kart" Content="Kart Satış" Style="{DynamicResource menubutonlar}" Click="pesin_satis_btn_Click"/>
+                <Button x:Name="mus_satis_btn" Content="Müş. Satiş" Style="{DynamicResource menubutonlar}" Click="mus_satis_btn_Click"/>
 
             </DockPanel>
         </Border>
@@ -104,7 +105,8 @@
                         <DataGridTextColumn Header="Ürün Adı" IsReadOnly="True" Width="*" Binding="{Binding UrunAdi}"/>
                         <DataGridTextColumn Header="Miktar" IsReadOnly="True" Width="*" Binding="{Binding Stok}"/>
                         <DataGridTextColumn Header="Fiyat" IsReadOnly="True" Width="*" Binding="{Binding SatisFiyati}"/>
-                        <DataGridTextColumn Header="Tutar" IsReadOnly="True" Width="*" Binding="{Binding SatisFiyati}"/>
+                        <DataGridTextColumn Header="Tutar" IsReadOnly="True" Width="*" Binding="{Binding AlisFiyati}"/>
+
 
                         <DataGridTemplateColumn IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>

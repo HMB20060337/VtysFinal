@@ -26,7 +26,6 @@
             </DockPanel>
         </Border>
 
-
         <Border Grid.Column="1" Grid.Row="1">
             <DataGrid Style="{DynamicResource DataGridStyle1}"  RowStyle="{DynamicResource DataGridRowStyle1}" FontFamily="Cascadia Code" FontSize="13" x:Name="firmalar_tablo" ColumnWidth="*">
                 <DataGrid.Columns>

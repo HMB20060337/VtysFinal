@@ -12,9 +12,9 @@ namespace WpfApp1.Entity
 
         [Key]  public int Id { get; set; }
 
-        public Stok_Giris girisId { get; set; }
+        public virtual Stok_Giris GirisId { get; set; }
 
-        public Urunler urunler { get; set; }
+        public virtual Urunler UrunId { get; set; }
 
         public int sayi { get; set; }
     }

@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Entity
 {
-    public class Kullanıcılar
+    public class Firma_Odeme
     {
         [Key]
-        public int KullaniciId { get; set; }
-        public string KullaniciAdi { get; set; }
-        public string pass { get; set; }
+        public int Id { get; set; }
 
+        public DateTime Tarih { get; set; }
+
+        public virtual Firmalar FirmaId { get; set; }
+
+        public double Odeme { get; set; }
     }
 }

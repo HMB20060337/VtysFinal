@@ -17,11 +17,6 @@ namespace WpfApp1.Entity
         public double AlisFiyati { get; set; }
         public double SatisFiyati { get; set; }
         public int Stok { get; set; }
-        public virtual ICollection<Fatura_Detay> Fatura_Detays { get;set; }
-
-        public virtual ICollection<Stok_Giris_Detay> Stok_Giris_Detays { get; set;}
-
-        public virtual ICollection<Islem_Detay> Islem_Detays { get; set; }
 
     }
 }

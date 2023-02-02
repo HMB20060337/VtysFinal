@@ -10,7 +10,9 @@ namespace WpfApp1.Entity
 {
     public class Context : DbContext
     {
-        public DbSet<Urunler> Urunler { get; set; }
+        public Context() : base("MarketDB")
+        { }
+    public DbSet<Urunler> Urunler { get; set; }
         public DbSet<Kullanıcılar> Kullanıcılar { get; set; }
         public DbSet<Fatura> Fatura { get; set; }
         public DbSet<Musteriler> Musteriler { get; set; }
@@ -22,6 +24,10 @@ namespace WpfApp1.Entity
         public DbSet<Islemler> Islemler { get; set; }
 
         public DbSet<Islem_Detay> Islem_Detay { get; set; }
+
+        public DbSet<Musteri_Odeme> Musteri_Odemes { get; set; }
+
+        public DbSet<Firma_Odeme> Firma_Odemes { get; set; }
 
     }
 }

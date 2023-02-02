@@ -23,7 +23,8 @@ namespace WpfApp1.UC
     {
         private Context db;
         private Grid x;
-        public firmalar(Context db, Grid x)
+
+        public firmalar(Context db,Grid x)
         {
             InitializeComponent();
             this.db = db;
@@ -31,6 +32,7 @@ namespace WpfApp1.UC
         }
         private void acilis()
         {
+
             var q = from firma in db.Firmalar select new { firma.FirmaId, firma.FirmaAdi, firma.Borc };
             firmalar_tablo.ItemsSource = q.ToList();
         }

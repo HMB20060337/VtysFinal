@@ -11,9 +11,9 @@ namespace WpfApp1.Entity
     {
 
         [Key] public int FaturaDetayID { get; set; }
-        public virtual Fatura Fatura { get; set; }
+        public virtual Fatura FaturaId { get; set; }
 
-        public virtual Urunler Urunler { get; set; }
+        public virtual Urunler UrunlerId { get; set; }
 
         public int miktar { get; set; }
 

@@ -30,6 +30,7 @@ namespace WpfApp1.UC
             InitializeComponent();
             this.db = datab;
             this.x = x;
+            acilis();
         }
 
         private void acilis()
@@ -41,6 +42,16 @@ namespace WpfApp1.UC
         private void musteri_ekle_btn_Click(object sender, RoutedEventArgs e)
         {
             Class1.uc_ekle(x, new musteri_ekle(db, x));
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            Class1.uc_ekle(x, new musteri_sil(db, x));
+        }
+
+        private void borc_Click(object sender, RoutedEventArgs e)
+        {
+            Class1.uc_ekle(x, new borc_ode(db, x));
         }
     }
 }
