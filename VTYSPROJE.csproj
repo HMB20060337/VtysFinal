@@ -147,10 +147,12 @@
     <Compile Include="UC\firmalar.xaml.cs">
       <DependentUpon>firmalar.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="UC\musteriler_uc_screens\borc_ode.xaml.cs">
       <DependentUpon>borc_ode.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\musteriler_uc_screens\musteriler_uc.xaml.cs">
+
       <DependentUpon>musteriler_uc.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\musteriler_uc_screens\musteri_ekle.xaml.cs">
@@ -199,6 +201,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
     <Page Include="UC\musteriler_uc_screens\borc_ode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
