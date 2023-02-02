@@ -11,13 +11,13 @@ namespace WpfApp1.Entity
     {
         [Key] public int IslemId { get; set; }
 
-        public Kullanıcılar KullanıcıId { get; set; }
+        public virtual Kullanıcılar KullanıcıId { get; set; }
 
         public DateTime tarih { get; set; }
 
         public double Tutar { get; set; }
 
-        public virtual ICollection<Islem_Detay> Islem_Detay { get; set; }
+        public string OdemeYontemi { get; set; }
 
     }
 }

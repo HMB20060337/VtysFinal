@@ -32,11 +32,7 @@ namespace WpfApp1
 
         }
         private static Context db = new Context();
-
-        public satis_login_uc a = new satis_login_uc(db);
-
-        
-
+    
 
     private void btn_kapat_click(object sender, RoutedEventArgs e)
         {
@@ -62,7 +58,7 @@ namespace WpfApp1
 
         private void btn_satis_mainmenu_Click(object sender, RoutedEventArgs e)
         {
-           WpfApp1.Class.Class1.uc_ekle(panelDesktop, new satis_login_uc(db));
+           WpfApp1.Class.Class1.uc_ekle(panelDesktop, new satis_login_uc(db,panelDesktop));
         }
 
         private void btn_urunler_mainmenu_Click(object sender, RoutedEventArgs e)
@@ -79,11 +75,17 @@ namespace WpfApp1
             WpfApp1.Class.Class1.uc_ekle(panelDesktop, new musteriler_uc(db,panelDesktop));
         }
 
+        private void btn_firmalar_mainmenu_Click(object sender, RoutedEventArgs e)
+        {
+            WpfApp1.Class.Class1.uc_ekle(panelDesktop, new firmalar(db,panelDesktop));
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {      
             Context a = new Context();
             a.Database.CreateIfNotExists();
         }
+    
     }
 
     public class urun

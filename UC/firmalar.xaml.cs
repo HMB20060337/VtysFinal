@@ -12,35 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.Class;
 using WpfApp1.Entity;
-using WpfApp1.UC.musteriler_uc_screens;
 
 namespace WpfApp1.UC
 {
     /// <summary>
-    /// musteriler_uc.xaml etkileşim mantığı
+    /// firmalar.xaml etkileşim mantığı
     /// </summary>
-    public partial class musteriler_uc : UserControl
+    public partial class firmalar : UserControl
     {
         private Context db;
         private Grid x;
-        public musteriler_uc(Context datab,Grid x)
+        public firmalar(Context db,Grid x)
         {
             InitializeComponent();
-            this.db = datab;
+            this.db = db;
             this.x = x;
         }
-
         private void acilis()
         {
-            var q = from musteri in db.Musteriler select new { musteri.MusteriId, musteri.MusteriSoyadi, musteri.MusteriAdi, musteri.Telefon, musteri.Borc };
-            musteriler_tablo.ItemsSource = q.ToList();
-        }
-
-        private void musteri_ekle_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Class1.uc_ekle(x, new musteri_ekle(db, x));
+            var q = from firma in db.Firmalar select new { firma.FirmaId , firma.FirmaAdi,firma.Borc};
+            firmalar_tablo.ItemsSource = q.ToList();
         }
     }
 }

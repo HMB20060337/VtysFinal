@@ -16,8 +16,6 @@ namespace WpfApp1.Entity
         public int tutar { get; set; }
 
         public virtual Firmalar FirmaId { get; set; }
-
-        public virtual ICollection<Stok_Giris_Detay> Stok_Giris_Detays { get; set; }
-             
+                   
     }
 }

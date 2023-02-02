@@ -29,6 +29,7 @@
                         <Button Content="ÜRÜNLER" Style="{DynamicResource minibutonlar}" x:Name="btn_urunler_mainmenu" Click="btn_urunler_mainmenu_Click"/>
                         <Button Content="RAPORLAR" Style="{DynamicResource minibutonlar}" x:Name="btn_raporlar_mainmenu" Click="btn_raporlar_mainmenu_Click"/>
                         <Button Content="MÜŞTERİLER" Style="{DynamicResource minibutonlar}" x:Name="btn_musteriler_mainmenu" Click="btn_musteriler_mainmenu_Click"/>
+                        <Button Content="FİRMALAR" Style="{DynamicResource minibutonlar}" x:Name="btn_firmalar_mainmenu" Click="btn_firmalar_mainmenu_Click"/>
                         <Button Style="{DynamicResource kapattus}" Click="btn_kapat_click"/>
                         <Button Style="{DynamicResource kapattus}" Click="btn_boyut_click"/>
                         <Button Style="{DynamicResource kapattus}" Click="btn_simgedrm_click"/>

@@ -11,9 +11,9 @@ namespace WpfApp1.Entity
     {
         [Key] public int ID { get; set; }
 
-        public virtual Islemler Islemler { get; set; }
+        public virtual Islemler IslemId { get; set; }
 
-        public virtual Urunler Urunler { get; set; }
+        public virtual Urunler UrunID { get; set; }
 
         public int Miktar { get; set; }
     }
