@@ -12,17 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Class;
+using WpfApp1.Entity;
+using WpfApp1.UC.rapor_screens;
 
-namespace WpfApp1.UC.stok_rapor_screens
+namespace WpfApp1.UC
 {
     /// <summary>
-    /// stok_uc.xaml etkileşim mantığı
+    /// raporlar_uc.xaml etkileşim mantığı
     /// </summary>
-    public partial class stok_uc : UserControl
+    public partial class raporlar_uc : UserControl
     {
-        public stok_uc()
+
+        private Context db;
+        private Grid x;
+        public raporlar_uc(Context db,Grid x)
         {
             InitializeComponent();
+            this.db = db;
+            this.x = x;
+        }
+        private void islemler_Click(object sender, RoutedEventArgs e)
+        {
+            Class1.uc_ekle(x, new ıslemler(db,x));
         }
     }
 }

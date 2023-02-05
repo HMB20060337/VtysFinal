@@ -9,7 +9,7 @@
     <Grid Background="#FFF6F6F6">
         <DockPanel>
             <Button Content="Stok Giriş Raporları" Style="{DynamicResource menubutonlar}" Width="auto" Margin="0,30,0,0"/>
-            <Button Content="İşlemler Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
+            <Button Content="İşlemler Raporu" Style="{DynamicResource menubutonlar}" Width="auto" Click="islemler_Click"/>
             <Button Content="Günlük Kasa Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
             <Button Content="Genel Kar Zarar Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
             <Button Content="Ürün Hareket Detay Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
@@ -17,9 +17,6 @@
             <Button Content="Toplu Müşteri Borç Durum Raporu" Style="{DynamicResource menubutonlar}" Width="auto" VerticalAlignment="Top"/>
 
         </DockPanel>
-
-
-
 
     </Grid>
 </UserControl>

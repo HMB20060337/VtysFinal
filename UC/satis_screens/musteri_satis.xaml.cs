@@ -58,17 +58,18 @@ namespace WpfApp1.UC.satis_screens
 
         private void musteri_sec_btn_Click(object sender, RoutedEventArgs e)
         {
+            DateTime t = DateTime.Now;
             Islemler ıslem = new Islemler
             {
                 KullanıcıId = k,
-                tarih = DateTime.Now,
+                tarih = t,
                 Tutar = toplam,
-                OdemeYontemi = ""
+                OdemeYontemi = "Müşteriye Satış"
             };
             Fatura fatura = new Fatura
             {
                 KullaniciId = k,
-                Tarih = DateTime.Now,
+                Tarih = t,
                 Tutar = toplam,
                 MusteriId = db.Musteriler.Find(b[combo.SelectedIndex].MusteriId)
             };
