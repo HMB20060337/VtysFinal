@@ -27,20 +27,20 @@ namespace WpfApp1.UC
     /// </summary>
     public partial class satis : UserControl
     {
-        private Kullanıcılar kullanici;
+        public Kullanıcılar kullanici;
         private Context db;
         private Grid x;
-        public satis(Kullanıcılar a,Context datab,Grid x)
+        public satis uc;
+        public satis(Context datab,Grid x)
         {
             InitializeComponent();
-            kullanici = a;
-            db = datab;
+            this.db = datab;
             this.x = x;
         }
         
-        public static ObservableCollection<Urunler> sepet = new ObservableCollection<Urunler>();
+        public ObservableCollection<Urunler> sepet = new ObservableCollection<Urunler>();
         public static ObservableCollection<Urunler> tmpsepet = new ObservableCollection<Urunler>();
-        public double toplam=0;
+        public double toplam=Convert.ToDouble(0);
         
         public void ekle_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -163,16 +163,15 @@ namespace WpfApp1.UC
         }      
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {     
-            sepet.RemoveAt(satis_urunler_tablo.SelectedIndex);
-            toplam = 0;
+        {               
             sepet.ToList().ForEach(x =>
             {
-                toplam += x.AlisFiyati;
                 var qq = db.Urunler.Find(x.UrunID);
-                qq.Stok += x.Stok;
+                qq.Stok = qq.Stok + x.Stok;
                 db.SaveChanges();
             });
+            toplam = toplam - sepet[satis_urunler_tablo.SelectedIndex].AlisFiyati;
+            sepet.RemoveAt(satis_urunler_tablo.SelectedIndex);
             toplamlabel.Text=toplam.ToString();
         }
 
@@ -199,8 +198,8 @@ namespace WpfApp1.UC
                     db.Islem_Detay.Add(ıslem_Detay);
                 });
                 sepet.Clear();
-                toplam = 0;
-                toplamlabel.Text = 0.ToString();
+                toplam = Convert.ToDouble(0);
+                toplamlabel.Text = toplam.ToString();
                 db.SaveChanges();
             }          
         }
@@ -209,7 +208,7 @@ namespace WpfApp1.UC
         {
             if (toplam > 0)
             {
-                Class1.uc_ekle(x, new musteri_satis(db, x, sepet, kullanici,toplam));
+                Class1.uc_ekle(x, new musteri_satis(db, x, sepet, kullanici,toplam,uc));
             }
         }
     }

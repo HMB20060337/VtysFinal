@@ -30,7 +30,8 @@ namespace WpfApp1.UC.satis_screens
         Kullanıcılar k;
         List<Musteriler> b = new List<Musteriler>();
         double toplam;
-        public musteri_satis(Context datab, Grid x, ObservableCollection<Urunler> a, Kullanıcılar k, double toplam)
+        private satis uc;
+        public musteri_satis(Context datab, Grid x, ObservableCollection<Urunler> a, Kullanıcılar k, double toplam, satis uc)
         {
             InitializeComponent();
             this.db = datab;
@@ -39,6 +40,7 @@ namespace WpfApp1.UC.satis_screens
             this.k = k;
             acilis();
             this.toplam = toplam;
+            this.uc = uc;
         }
 
         private void acilis()
@@ -100,7 +102,10 @@ namespace WpfApp1.UC.satis_screens
             var qq = db.Musteriler.Find(b[combo.SelectedIndex].MusteriId);
             qq.Borc = qq.Borc + toplam;
             db.SaveChanges();
-            Class1.uc_ekle(x, new satis(k,db, x));
+            uc.sepet.Clear();
+            uc.toplam = 0;
+            uc.toplamlabel.Text = "0.00";
+            Class1.uc_ekle(x, uc);
         }
     }
 }

@@ -27,12 +27,13 @@ namespace WpfApp1.UC.rapor_screens
         private Islemler ıslem;
         private Grid x;
         private ObservableCollection<Urunler> urunlers= new ObservableCollection<Urunler>();
+        public ıslemler uc;
         public detay(Context db,Islemler a,Grid x)
         {
             InitializeComponent();
             this.db = db;
             this.x = x;
-            this.ıslem= a;
+            this.ıslem= a;          
             acilis();
         }
 
@@ -70,6 +71,11 @@ namespace WpfApp1.UC.rapor_screens
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Class1.uc_ekle(x,new dogrulama(db,x,ıslem));
+        }
+
+        private void kapat_Click(object sender, RoutedEventArgs e)
+        {
+            Class1.uc_ekle(x,uc);
         }
     }
 }

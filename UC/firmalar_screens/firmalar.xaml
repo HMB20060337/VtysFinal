@@ -21,7 +21,7 @@
         </Border>
         <Border Grid.Row="1">
             <DockPanel VerticalAlignment="Top">
-                <Button x:Name="borc" Content="Borç Ödeme" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Margin="0 20 0 0"/>
+                <Button x:Name="borc" Content="Borç Ödeme" Style="{DynamicResource menubutonlar}" VerticalAlignment="Top" Margin="0 20 0 0" Click="borc_Click"/>
 
             </DockPanel>
         </Border>
@@ -50,6 +50,16 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Borc}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn IsReadOnly="True" MaxWidth="90" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button x:Name="Detay" Margin = "0 0 0 0" Content="Detay" Style="{DynamicResource satiseklebuton}" FontSize="13" Click="Detay_Click">
+                                    </Button>
+                                </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

@@ -20,6 +20,5 @@ namespace WpfApp1.Entity
         public int tutar { get; set; }
 
         public virtual Firmalar FirmaId { get; set; }
-                   
     }
 }

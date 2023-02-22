@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Class;
 using WpfApp1.Entity;
+using WpfApp1.UC.musteriler_screens;
 using WpfApp1.UC.musteriler_uc_screens;
 
 namespace WpfApp1.UC
@@ -33,10 +35,21 @@ namespace WpfApp1.UC
             acilis();
         }
 
+        private ObservableCollection<Musteriler> a = new ObservableCollection<Musteriler>();
+
         private void acilis()
         {
             var q = from musteri in db.Musteriler select new { musteri.MusteriId, musteri.MusteriSoyadi, musteri.MusteriAdi, musteri.Telefon, musteri.Borc };
-            musteriler_tablo.ItemsSource = q.ToList();
+            q.ToList().ForEach(x => {
+                a.Add(new Musteriler {
+                    MusteriId=x.MusteriId,
+                    MusteriSoyadi = x.MusteriSoyadi,
+                    MusteriAdi = x.MusteriAdi,
+                    Telefon = x.Telefon,
+                    Borc = x.Borc
+                });
+            });
+            musteriler_tablo.ItemsSource = a;
         }
 
         private void musteri_ekle_btn_Click(object sender, RoutedEventArgs e)
@@ -52,6 +65,13 @@ namespace WpfApp1.UC
         private void borc_Click(object sender, RoutedEventArgs e)
         {
             Class1.uc_ekle(x, new borc_ode(db, x));
+        }
+
+        private void detay_Click(object sender, RoutedEventArgs e)
+        {
+            musteri_islemler uc = new musteri_islemler(db, x, a[musteriler_tablo.SelectedIndex]);
+            uc.qqq = uc;
+            Class1.uc_ekle(x, uc);
         }
     }
 }

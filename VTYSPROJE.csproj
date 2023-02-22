@@ -44,10 +44,39 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.7.0.1\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,25 +112,59 @@
     <Compile Include="Entity\Stok_Giris.cs" />
     <Compile Include="Entity\Stok_Giris_Detay.cs" />
     <Compile Include="Entity\Urunler.cs" />
-    <Compile Include="UC\firmalar.xaml.cs">
-      <DependentUpon>firmalar.xaml</DependentUpon>
+    <Compile Include="Migrations\202302052216561_InitialCreate.cs" />
+    <Compile Include="Migrations\202302052216561_InitialCreate.designer.cs">
+      <DependentUpon>202302052216561_InitialCreate.cs</DependentUpon>
     </Compile>
-
-    <Compile Include="UC\musteriler_uc_screens\borc_ode.xaml.cs">
+    <Compile Include="Migrations\202302201745219_firmalar_borc_datatype_changed.cs" />
+    <Compile Include="Migrations\202302201745219_firmalar_borc_datatype_changed.designer.cs">
+      <DependentUpon>202302201745219_firmalar_borc_datatype_changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="UC\firmalar_screens\borc_ode.xaml.cs">
       <DependentUpon>borc_ode.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\musteriler_uc_screens\musteriler_uc.xaml.cs">
-
+    <Compile Include="UC\firmalar_screens\detay.xaml.cs">
+      <DependentUpon>detay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\firmalar_screens\firmalar.xaml.cs">
+      <DependentUpon>firmalar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\firmalar_screens\firma_detay.xaml.cs">
+      <DependentUpon>firma_detay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\firmalar_screens\firma_sGiris_detay.xaml.cs">
+      <DependentUpon>firma_sGiris_detay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\musteriler_screens\borc_ode.xaml.cs">
+      <DependentUpon>borc_ode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\musteriler_screens\kullanici_dogrulama.xaml.cs">
+      <DependentUpon>kullanici_dogrulama.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\musteriler_screens\musteriler_uc.xaml.cs">
       <DependentUpon>musteriler_uc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\musteriler_uc_screens\musteri_ekle.xaml.cs">
+    <Compile Include="UC\musteriler_screens\musteri_ekle.xaml.cs">
       <DependentUpon>musteri_ekle.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\musteriler_uc_screens\musteri_sil.xaml.cs">
+    <Compile Include="UC\musteriler_screens\musteri_islemler.xaml.cs">
+      <DependentUpon>musteri_islemler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\musteriler_screens\musteri_islem_detay.xaml.cs">
+      <DependentUpon>musteri_islem_detay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\musteriler_screens\musteri_sil.xaml.cs">
       <DependentUpon>musteri_sil.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\rapor_screens\detay.xaml.cs">
-      <DependentUpon>detay.xaml</DependentUpon>
+    <Compile Include="UC\rapor_screens\stok_girisler.xaml.cs">
+      <DependentUpon>stok_girisler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\rapor_screens\stok_giris_detay.xaml.cs">
+      <DependentUpon>stok_giris_detay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\rapor_screens\ıslem_detay.xaml.cs">
+      <DependentUpon>ıslem_detay.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\rapor_screens\dogrulama.xaml.cs">
       <DependentUpon>dogrulama.xaml</DependentUpon>
@@ -124,10 +187,13 @@
     <Compile Include="UC\satis_screens\satis_register_uc.xaml.cs">
       <DependentUpon>satis_register_uc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\urunler_uc_screens\urunler.xaml.cs">
+    <Compile Include="UC\urunler_screens\stok_giris_uc.xaml.cs">
+      <DependentUpon>stok_giris_uc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\urunler_screens\urunler.xaml.cs">
       <DependentUpon>urunler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\urunler_uc_screens\urun_ekle.xaml.cs">
+    <Compile Include="UC\urunler_screens\urun_ekle.xaml.cs">
       <DependentUpon>urun_ekle.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -142,28 +208,63 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UC\firmalar.xaml">
+    <Page Include="UC\firmalar_screens\borc_ode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
-    <Page Include="UC\musteriler_uc_screens\borc_ode.xaml">
+    <Page Include="UC\firmalar_screens\detay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\musteriler_uc_screens\musteriler_uc.xaml">
+    <Page Include="UC\firmalar_screens\firmalar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\musteriler_uc_screens\musteri_ekle.xaml">
+    <Page Include="UC\firmalar_screens\firma_detay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\musteriler_uc_screens\musteri_sil.xaml">
+    <Page Include="UC\firmalar_screens\firma_sGiris_detay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\rapor_screens\detay.xaml">
+    <Page Include="UC\musteriler_screens\borc_ode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_screens\kullanici_dogrulama.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_screens\musteriler_uc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_screens\musteri_ekle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_screens\musteri_islemler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_screens\musteri_islem_detay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\musteriler_screens\musteri_sil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\rapor_screens\stok_girisler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\rapor_screens\stok_giris_detay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\rapor_screens\ıslem_detay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,11 +296,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\urunler_uc_screens\urunler.xaml">
+    <Page Include="UC\urunler_screens\stok_giris_uc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\urunler_uc_screens\urun_ekle.xaml">
+    <Page Include="UC\urunler_screens\urunler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\urunler_screens\urun_ekle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +323,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202302052216561_InitialCreate.resx">
+      <DependentUpon>202302052216561_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302201745219_firmalar_borc_datatype_changed.resx">
+      <DependentUpon>202302201745219_firmalar_borc_datatype_changed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

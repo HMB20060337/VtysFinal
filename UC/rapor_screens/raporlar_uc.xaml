@@ -8,7 +8,7 @@
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid Background="#FFF6F6F6">
         <DockPanel>
-            <Button Content="Stok Giriş Raporları" Style="{DynamicResource menubutonlar}" Width="auto" Margin="0,30,0,0"/>
+            <Button Content="Stok Giriş Raporları" Style="{DynamicResource menubutonlar}" Width="auto" Margin="0,30,0,0" Click="stok_giris_raporlari_Click"/>
             <Button Content="İşlemler Raporu" Style="{DynamicResource menubutonlar}" Width="auto" Click="islemler_Click"/>
             <Button Content="Günlük Kasa Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>
             <Button Content="Genel Kar Zarar Raporu" Style="{DynamicResource menubutonlar}" Width="auto"/>

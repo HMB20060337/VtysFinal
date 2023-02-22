@@ -1,0 +1,26 @@
+﻿[{
+"irsaliyeno": 123456,
+"Tutar" : 507,
+"FirmaAdi" : "eti"
+},
+{
+"urunkod": 3,
+"urunadi": "d",
+"barkod": 789,
+"alisFiyati": 2,
+"miktar": 2
+},
+{
+"urunkod": 4,
+"urunadi": "e",
+"barkod": 321,
+"alisFiyati": 3,
+"miktar": 1
+},
+{
+"urunkod": 5,
+"urunadi": "k",
+"barkod": 654,
+"alisFiyati": 100,
+"miktar": 5
+}]

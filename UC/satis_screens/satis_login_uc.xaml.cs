@@ -26,11 +26,13 @@ namespace WpfApp1.UC
     {
         private Context db;
         private Grid x;
-        public satis_login_uc(Context datab, Grid x)
+        private satis uc;
+        public satis_login_uc(Context datab, Grid x,satis satis)
         {
             InitializeComponent();
-            db = datab;
+            this.db = datab;
             this.x = x;
+            this.uc = satis;
         }
 
         private void satisuc_login_username_tb_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -77,7 +79,9 @@ namespace WpfApp1.UC
             var q = from p in db.Kullanıcılar where p.KullaniciAdi == login_page_user.Text && p.pass == login_page_pass.Text select p;           
             if (q.Any()){
                 Kullanıcılar a = q.First();
-                Class1.uc_ekle(login_page_panel, new satis(a,db,x));
+                uc.kullanici = a;
+                uc.uc = uc;
+                Class1.uc_ekle(x,uc);
 
             }
             else{
@@ -97,7 +101,7 @@ namespace WpfApp1.UC
         }
         private void register_btn_Click(object sender, RoutedEventArgs e)
         {
-            Class1.uc_ekle(x, new satis_register_uc(db,x));
+            Class1.uc_ekle(x, new satis_register_uc(db,x,uc));
         }
     }
 }

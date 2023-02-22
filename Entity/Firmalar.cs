@@ -13,7 +13,7 @@ namespace WpfApp1.Entity
 
         public string FirmaAdi { get; set; }
 
-        public int Borc { get; set; }
+        public double Borc { get; set; }
 
     }
 }

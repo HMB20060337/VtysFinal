@@ -26,6 +26,7 @@ namespace WpfApp1.UC.rapor_screens
         private Context db;
         private Grid x;
         private ObservableCollection<Islemler> a = new ObservableCollection<Islemler>();
+        public ıslemler qqq;
         public ıslemler(Context db,Grid x)
         {
             InitializeComponent();
@@ -53,7 +54,9 @@ namespace WpfApp1.UC.rapor_screens
 
         private void detay_Click(object sender, RoutedEventArgs e)
         {
-            Class1.uc_ekle(x, new detay(db, a[islemlertablo.SelectedIndex],x));
+            detay uc = new detay(db, a[islemlertablo.SelectedIndex], x);
+            uc.uc = qqq;
+            Class1.uc_ekle(x, uc);
 
         }
 

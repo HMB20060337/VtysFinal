@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,25 +14,27 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Class;
 using WpfApp1.Entity;
+using WpfApp1.UC.rapor_screens;
 
-namespace WpfApp1.UC.rapor_screens
+namespace WpfApp1.UC.musteriler_screens
 {
     /// <summary>
-    /// dogrulama.xaml etkileşim mantığı
+    /// kullanici_dogrulama.xaml etkileşim mantığı
     /// </summary>
-    public partial class dogrulama : UserControl
+    public partial class kullanici_dogrulama : UserControl
     {
         private Context db;
         private Grid x;
-        private Islemler ıslem;
-        public dogrulama(Context datab, Grid x, Islemler ıslem)
+        private Fatura ıslem;
+        private musteri_islemler uc;
+        public kullanici_dogrulama(Context datab, Grid x, Fatura ıslem, musteri_islemler uc)
         {
             InitializeComponent();
             db = datab;
             this.x = x;
             this.ıslem = ıslem;
+            this.uc = uc;
         }
-
         private void satisuc_login_username_tb_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             login_page_user.Text = "";
@@ -74,83 +74,55 @@ namespace WpfApp1.UC.rapor_screens
 
             }
         }
-
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
             var q = from p in db.Kullanıcılar where p.KullaniciAdi == login_page_user.Text && p.pass == login_page_pass.Text select p;
             if (q.Any())
             {
-                ıslem = db.Islemler.Find(ıslem.IslemId); 
-
-
-               if(ıslem.OdemeYontemi=="Müşteriye Satış")
-                {           
-                    var qqq = from fatura in db.Fatura.Where(x=> x.Tarih.CompareTo(ıslem.tarih)==0) select fatura;
-                    var qq = db.Fatura.Find(qqq.First().FaturaId);
-                    var m = db.Musteriler.Find(qq.MusteriId.MusteriId);
-                    m.Borc = m.Borc - qq.Tutar;
-                    db.Fatura.Remove(qq);
-                    var qs = from detay in db.Fatura_Detay.Where(x => x.FaturaId.FaturaId == qq.FaturaId)
-                             select new 
-                             {
-                                 detay.FaturaDetayID,
-                                 detay.miktar,
-                                 detay.FaturaId,
-                                 detay.UrunlerId,
-                             };
-                    qs.ToList().ForEach(x =>
-                    {
-                        var temp = db.Fatura_Detay.Find(x.FaturaId.FaturaId);
-                        db.Fatura_Detay.Remove(temp);
-                    });
-
-                    db.Islemler.Remove(ıslem);
-                    var qw = from detay in db.Islem_Detay.Where(x => x.IslemId.IslemId == ıslem.IslemId)
-                             select new
-                             {
-                                 detay.ID,
-                                 detay.IslemId,
-                                 detay.Miktar,
-                                 detay.UrunID
-                             };
-                    qw.ToList().ForEach(x =>
-                    {
-                        var temp = db.Islem_Detay.Find(x.ID);
-
-                        var temp1 = db.Urunler.Find(x.UrunID.UrunID);
-
-                        temp1.Stok += x.Miktar;
-
-                        db.Islem_Detay.Remove(temp);
-
-                    });
-                }
-                else
+                var qqq = from fatura in db.Islemler.Where(x => x.tarih.CompareTo(ıslem.Tarih) == 0) select fatura;
+                var qq = db.Islemler.Find(qqq.First().IslemId);
+                var m = db.Musteriler.Find(ıslem.MusteriId.MusteriId);
+                m.Borc = m.Borc - ıslem.Tutar;
+                ıslem = db.Fatura.Find(ıslem.FaturaId);
+                db.Fatura.Remove(ıslem);
+                var qs = from detay in db.Fatura_Detay.Where(x => x.FaturaId.FaturaId == ıslem.FaturaId)
+                         select new
+                         {
+                             detay.FaturaDetayID,
+                             detay.miktar,
+                             detay.FaturaId,
+                             detay.UrunlerId,
+                         };
+                qs.ToList().ForEach(x =>
                 {
-                    db.Islemler.Remove(ıslem);
-                    var qw = from detay in db.Islem_Detay.Where(x => x.IslemId.IslemId == ıslem.IslemId)
-                             select new
-                             {
-                                 detay.ID,
-                                 detay.IslemId,
-                                 detay.Miktar,
-                                 detay.UrunID
-                             };
-                    qw.ToList().ForEach(x =>
-                    {
-                        var temp = db.Islem_Detay.Find(x.ID);
-                        
-                        var temp1 = db.Urunler.Find(x.UrunID.UrunID);
-                        
-                        temp1.Stok += x.Miktar;
+                    var temp = db.Fatura_Detay.Find(x.FaturaId.FaturaId);
+                    db.Fatura_Detay.Remove(temp);
+                });
+                db.Islemler.Remove(qq);
+                var qw = from detay in db.Islem_Detay.Where(x => x.IslemId.IslemId == qq.IslemId)
+                         select new
+                         {
+                             detay.ID,
+                             detay.IslemId,
+                             detay.Miktar,
+                             detay.UrunID
+                         };
+                qw.ToList().ForEach(x =>
+                {
+                    var temp = db.Islem_Detay.Find(x.ID);
 
-                        db.Islem_Detay.Remove(temp);
-                       
-                    });
-                }
+                    var temp1 = db.Urunler.Find(x.UrunID.UrunID);
+
+                    temp1.Stok += x.Miktar;
+
+                    db.Islem_Detay.Remove(temp);
+
+                });
+
                 db.SaveChanges();
                 MessageBox.Show("İşlem Kaydı Silindi");
-                Class1.uc_ekle(x, new ıslemler(db, x));
+                uc.acilis();
+                Class1.uc_ekle(x, uc);
             }
             else
             {

@@ -43,6 +43,11 @@ namespace WpfApp1.UC
         {
             Class1.uc_ekle(x, new urun_ekle(db,x));  
         }
+
+        private void stok_giris_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Class1.uc_ekle(x, new stok_giris_uc(db,x));
+        }
     }
 
 }

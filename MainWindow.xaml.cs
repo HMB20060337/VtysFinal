@@ -25,16 +25,16 @@ namespace WpfApp1
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {       
+    {
+        private static Context db = new Context();
+        private static satis uc;
         public MainWindow()
         {
             InitializeComponent();
-
+            uc = new satis(db, panelDesktop);
         }
-        private static Context db = new Context();
-    
 
-    private void btn_kapat_click(object sender, RoutedEventArgs e)
+        private void btn_kapat_click(object sender, RoutedEventArgs e)
         {
             
             this.Close();
@@ -58,7 +58,7 @@ namespace WpfApp1
 
         private void btn_satis_mainmenu_Click(object sender, RoutedEventArgs e)
         {
-           WpfApp1.Class.Class1.uc_ekle(panelDesktop, new satis_login_uc(db,panelDesktop));
+           WpfApp1.Class.Class1.uc_ekle(panelDesktop, new satis_login_uc(db,panelDesktop,uc));
         }
 
         private void btn_urunler_mainmenu_Click(object sender, RoutedEventArgs e)
@@ -87,15 +87,4 @@ namespace WpfApp1
         }
     
     }
-
-    public class urun
-    {
-        public string barkod { get; set; }
-        public string urun_adi { get; set; }
-        public string fiyat { get; set; }
-        public string stok_miktari { get; set; }
-        public string alis_fiyati { get; set; }
-        public string urun_kodu { get; set; }
-    }
-
 }

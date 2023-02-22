@@ -24,11 +24,13 @@ namespace WpfApp1.UC
     {
         private Context db;
         private Grid x;
-        public satis_register_uc(Context datab,Grid x)
+        private satis uc;
+        public satis_register_uc(Context datab,Grid x,satis uc)
         {
             InitializeComponent();
             this.db = datab;
             this.x = x;
+            this.uc = uc;
         }
 
         private void satisuc_login_username_tb_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -90,7 +92,7 @@ namespace WpfApp1.UC
 
                 MessageBox.Show("Kayıt Oluşturuldu");
 
-                Class1.uc_ekle(register_page_panel, new satis_login_uc(db,x));
+                Class1.uc_ekle(x, new satis_login_uc(db,x,uc));
 
             }
         }
